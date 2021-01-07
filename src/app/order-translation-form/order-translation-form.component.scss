@@ -1,0 +1,32 @@
+.type-translation-title {
+    padding: 5rem 0 3rem 0;
+
+    h2 {
+        font-size: 24px;
+        color: #6c757d;
+        text-transform: uppercase;
+    }
+}
+
+.type-translation-block {
+    padding: 0 15rem;
+
+    .btn-type-translation {
+        width: 10rem;
+        height: 10rem;
+        background-color: #eef2f7ba;
+        border-color: #dae0e5;
+        font-weight: 600;
+    }
+
+    .btn-type-translation:hover {
+        background-color: #949da5;
+    }
+
+    .btn:focus,.btn:active {
+        color: #6c757d;
+        background-color: #e2e3e4;
+        box-shadow: 0 0 0 0.2rem rgb(9 93 239 / 92%);
+    }
+    
+}

@@ -19,7 +19,7 @@ export class OrderTranslationFormComponent implements OnInit {
     this.form = new FormGroup({
       file: new FormControl(),
       translateTone: new FormControl(),
-      translateFrom: new FormControl(),
+      translateFrom: new FormControl('English'),
       translateTo: new FormControl
     })
 

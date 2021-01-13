@@ -28,7 +28,8 @@ export class OrderTranslationFormComponent implements OnInit {
       file: new FormControl(),
       translateTone: new FormControl(),
       translateFrom: new FormControl('English'),
-      translateTo: new FormControl()
+      translateTo: new FormControl(),
+      urgency: new FormControl()
     });
 
     this.radioGroupForm = this.formBuilder.group({

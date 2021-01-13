@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 const urgencyListSource = {
   "I got time": "our expert translator can take a reasonable amount of time perfecting your translation.",
@@ -13,7 +13,6 @@ const urgencyListSource = {
   styleUrls: ['./order-translation-form.component.scss']
 })
 export class OrderTranslationFormComponent implements OnInit {
-  radioGroupForm: FormGroup;
   form: FormGroup;
   uploadedFiles: File[] = [];
 
@@ -24,18 +23,20 @@ export class OrderTranslationFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      file: new FormControl(),
-      translateTone: new FormControl(),
-      translateFrom: new FormControl('English'),
-      translateTo: new FormControl(),
-      urgency: new FormControl()
+    this.form = this.formBuilder.group({
+      files: [this.uploadedFiles, [Validators.required]],
+      translateTone: [null, [Validators.required]],
+      translateFrom: ['eng', [Validators.required]],
+      translateTo: [null, [Validators.required]],
     });
 
-    this.radioGroupForm = this.formBuilder.group({
-      translateTone: 1,
-      translateFrom: 'English'
-    });
+    //   new FormGroup({
+    //   file: new FormControl(),
+    //   translateTone: new FormControl(),
+    //   translateFrom: new FormControl('eng'),
+    //   translateTo: new FormControl()
+    // });
+
   }
 
   handleFileInput(event): void {

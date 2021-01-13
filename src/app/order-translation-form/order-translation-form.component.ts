@@ -9,35 +9,40 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 export class OrderTranslationFormComponent implements OnInit {
   public radioGroupForm: FormGroup;
-  form: FormGroup
-  fileToUpload: File[] = [];
-  model = 1;
-  
-  constructor(private formBuilder: FormBuilder) { }
+  form: FormGroup;
+  uploadedFiles: File[] = [];
+
+  constructor(
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
       file: new FormControl(),
       translateTone: new FormControl(),
       translateFrom: new FormControl('English'),
-      translateTo: new FormControl
-    })
+      translateTo: new FormControl()
+    });
 
     this.radioGroupForm = this.formBuilder.group({
-      'translateTone': 1,
-      'translateFrom': 'English'
+      translateTone: 1,
+      translateFrom: 'English'
     });
   }
 
-  handleFileInput(event) {
+  handleFileInput(event): void {
     const file = event.target.files[0];
-    this.fileToUpload.push(file);
+    this.uploadedFiles.push(file);
     // console.log(this.fileToUpload);
   }
 
-  orderSubmit() {
-    // console.log('Form submited', this.form)
-    const formData= {...this.form.value}
-    console.log('Form data:', formData)
+  orderSubmit(): void {
+    // console.log('Form submitted', this.form)
+    const formData = {...this.form.value};
+    console.log('Form data:', formData);
+  }
+
+  removeFile(file: File): void {
+    this.uploadedFiles.splice(this.uploadedFiles.findIndex(f => f === file), 1);
   }
 }

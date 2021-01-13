@@ -24,122 +24,125 @@
         background-color: #eef2f7ba;
         border-color: #dae0e5;
         font-weight: 600;
+
+        &:hover {
+            background-color: #949da5;
+        }
     }
 
-    .btn-type-translation:hover {
-        background-color: #949da5;
-    }
-
-    .btn:focus,.btn:active {
+    .btn:focus,
+    .btn:active {
         color: #6c757d;
         background-color: #e2e3e4;
         box-shadow: 0 0 0 0.2rem rgb(9 93 239 / 92%);
     }
-    
+
 }
 
 .order-translation-form {
     margin-top: 10rem;
     min-height: 300px;
+}
 
-    .form-block {
-        margin-bottom: 4rem;
+.form-block {
+    margin-bottom: 4rem;
 
-        .form-block-titel{
-            h3 {
-                font-size: 20px;
-                    // span.order-list {
-                    // }
-                    span.coments {
-                        font-size: .8rem;
-                        color: #6c757d;
-                    }
-            }
-        }
-        .form-block-content {
-            margin-top: 1.5rem;
-        }
+    .form-block-title{
+        h3 {
+            font-size: 20px;
 
-    }
-
-    .inp-files {
-        
-        input[type="file"] {
-            display: none;
-        }
-
-        .custom-file-upload {
-            border: 1px solid #ccc;
-            display: inline-block;
-            padding: 6px 12px;
-            cursor: pointer;
-        }
-
-        .files-table {
-            padding: 1rem 1.5rem;
-            border: 1px solid #cccccc;
-
-            th {
-                color: #6c757d;
-                text-transform: uppercase;
-            }
-
-            td {
+            span.comments {
+                font-size: .8rem;
                 color: #6c757d;
             }
         }
     }
+    .form-block-content {
+        margin-top: 1.5rem;
+    }
 
-    .lang-select {
-        p {
+}
+
+.inp-files {
+
+    input[type="file"] {
+        display: none;
+    }
+
+    .custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+
+    .files-table {
+        padding: 1rem 1.5rem;
+        border: 1px solid #cccccc;
+
+        th {
             color: #6c757d;
             text-transform: uppercase;
-            font-weight: 600;
-
-            select {
-                margin: 0.5rem 2rem;
-                padding: 0.5rem;
-                // border: 1 solid #cccccc;
-            }
-
-            // select::after {
-            //     content: "";
-            //     width: 0.8em;
-            //     height: 0.8em;
-            //     border: 1px solid black;
-            // }
-        }
-    }
-
-    .selec-desire {
-        .btn-disire-tone {
-            margin-bottom: 2rem;
-            background-color: #eef2f7ba;
-            border-color: #dae0e5;
-            border-radius: 5px;
-            font-weight: 600;
-        }
-    
-        .btn-disire-tone:hover {
-            background-color: #949da5;
-        }
-    
-        input[type=radio]:checked +
-        .btn-disire-tone::after {
-            border: 2px solid black;
         }
 
-        .btn-disire-tone:focus,.btn-disire-tone:active, .btn-disire-tone:checked {
+        td {
             color: #6c757d;
-            background-color: #e2e3e4;
-            box-shadow: 0 0 0 0.2rem rgb(9 93 239 / 92%);
         }
     }
-    
 
+    .remove-file {
+        cursor: pointer;
+    }
+}
 
-    .form-footer {
-    margin-top: 5rem;
+.lang-select {
+    p {
+        color: #6c757d;
+        text-transform: uppercase;
+        font-weight: 600;
+
+        select {
+            margin: 0.5rem 2rem;
+            padding: 0.5rem;
+            // border: 1 solid #cccccc;
+        }
+
+        // select::after {
+        //     content: "";
+        //     width: 0.8em;
+        //     height: 0.8em;
+        //     border: 1px solid black;
+        // }
+    }
+}
+
+.select-desire-ton {
+    .btn-desire-tone {
+        margin-bottom: 2rem;
+        background-color: #eef2f7ba;
+        border-color: #dae0e5;
+        border-radius: 5px;
+        font-weight: 600;
+
+        &:hover {
+          background-color: #949da5;
+        }
+
+        &:focus,
+        &:active,
+        &:checked {
+          color: #6c757d;
+          background-color: #e2e3e4;
+          box-shadow: 0 0 0 0.2rem rgb(9 93 239 / 92%);
+        }
     }
 
+    input[type=radio]:checked +
+    .btn-desire-tone::after {
+        border: 2px solid black;
+    }
+}
+
+.form-footer {
+    margin-top: 5rem;
 }

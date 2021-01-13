@@ -13,91 +13,100 @@
 
   <form class="order-translation-form" [formGroup]="form" (ngSubmit)="orderSubmit()">
     <div class="container">
-    <div class="col-sm-12 form-block">
-      <div class="form-block-titel">
-        <h3><span class="order-list">1</span> Upload your document <span class="coments">(Doc, Docx, Text, PDF, Markdown)</span></h3>
-      </div>
-      <div class="form-block-content inp-files mb-3">
-        <label class="custom-file-upload btn btn-light" for="file">Upload a new file</label>
-        <input 
-          aria-label="file example" required
-          type="file"
-          id="file"
-          formControlName="file"
-          (change)="handleFileInput($event)"> 
+      <div class="row">
+        <div class="col-sm-12 form-block">
+          <div class="form-block-titel">
+            <h3><span class="order-list">1</span> Upload your document <span class="coments">(Doc, Docx, Text, PDF, Markdown)</span></h3>
+          </div>
+          <div class="form-block-content inp-files mb-3">
+            <label class="custom-file-upload btn btn-light" for="file">Upload a new file</label>
+            <input 
+              aria-label="file example" required
+              type="file"
+              id="file"
+              formControlName="file"
+              (change)="handleFileInput($event)"> 
 
-        <div class="files-table col-sm-12" *ngIf="fileToUpload.length > 0">
-          <table class="table table-borderless" >
-            <tr>
-              <th>File Name</th>
-              <th>File Size</th>
-              <th>Number of Words</th>
-              <th>Remove</th>
-            </tr>
-            <tr *ngFor="let file of fileToUpload">
-              <td>{{file.name}}</td>
-              <td>{{file.size / 1024 | number}}kb</td>
-              <td>842</td>
-              <td></td>
-            </tr>
-          </table>
+            <div class="files-table col-sm-12" *ngIf="fileToUpload.length > 0">
+              <table class="table table-borderless" >
+                <tr>
+                  <th>File Name</th>
+                  <th>File Size</th>
+                  <th>Number of Words</th>
+                  <th>Remove</th>
+                </tr>
+                <tr *ngFor="let file of fileToUpload">
+                  <td>{{file.name}}</td>
+                  <td>{{file.size / 1024 | number}}kb</td>
+                  <td>842</td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="col-sm-12 form-block">
-      <div class="form-block-titel">
-        <h3><span>2</span> Choose your languages pairings</h3>
-      </div>
-      <div class="form-block-content lang-select">
-        <div class="col-sm-12">
-          <p>from:
-            <select 
-            class="form-select btn btn-light" 
-            aria-label="Default select example"
-            formControlName="translateFrom">
-              <option selected value="eng">English</option>
-              <option value="rus">Russian</option>
-              <option value="ukr">Ukraine</option>
-            </select>
-          </p>
+        <div class="col-sm-12 form-block">
+          <div class="form-block-titel">
+            <h3><span>2</span> Choose your languages pairings</h3>
+          </div>
+          <div class="form-block-content lang-select">
+            <div class="col-sm-12">
+              <p>from:
+                <select 
+                class="form-select btn btn-light" 
+                aria-label="Default select example"
+                formControlName="translateFrom">
+                  <option value="eng">English</option>
+                  <option value="rus">Russian</option>
+                  <option value="ukr">Ukraine</option>
+                </select>
+              </p>
+            </div>
+            <div class="col-sm-12">
+              <p>to:
+                <select 
+                class="form-select btn btn-light" 
+                aria-label="Default select example"
+                formControlName="translateTo">
+                  <option selected>Choose languages</option>
+                  <option value="eng">English</option>
+                  <option value="rus">Russian</option>
+                  <option value="ukr">Ukraine</option>
+                </select>
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-12">
-          <p>to:
-            <select 
-            class="form-select btn btn-light" 
-            aria-label="Default select example"
-            formControlName="translateTo">
-              <option selected>Choose languages</option>
-              <option value="eng">English</option>
-              <option value="rus">Russian</option>
-              <option value="ukr">Ukraine</option>
-            </select>
-          </p>
-        </div>
-      </div>
-    </div>
     
-      <div class="col-sm-6 form-block">
-        <div class="form-block-titel">
-          <h3><span>3</span> Select your desired tone</h3>
+        <div class="col-sm-4 form-block">
+          <div class="form-block-titel">
+            <h3><span>3</span> Select your desired tone</h3>
+          </div>
+          <div class="selec-desire form-block-content btn-group-vertical btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="translateTone">
+              <label ngbButtonLabel class="btn-disire-tone btn-outline-secondary">
+                <input ngbButton type="radio" [value]="1"> Friendly / Casual
+              </label>
+              <label ngbButtonLabel class="btn-disire-tone btn-outline-secondary">
+                <input ngbButton type="radio" [value]="2"> Corporate / Pro
+              </label>
+              <label ngbButtonLabel class="btn-disire-tone btn-outline-secondary">
+                <input ngbButton type="radio" [value]="3"> Media / Formal
+              </label>
+          </div>
         </div>
-        <div class="selec-desire form-block-content btn-group-vertical btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="translateTone">
-            <label ngbButtonLabel class="btn-disire-ton btn-outline-secondary">
-              <input ngbButton type="radio" [value]="1"> Friendly / Casual
-            </label>
-            <label ngbButtonLabel class="btn-disire-ton btn-outline-secondary">
-              <input ngbButton type="radio" [value]="2"> Corporate / Pro
-            </label>
-            <label ngbButtonLabel class="btn-disire-ton btn-outline-secondary">
-              <input ngbButton type="radio" [value]="3"> Media / Formal
-            </label>
+
+        <div class="col-sm-8 form-block">
+          <div class="form-block-titel">
+            <h3><span>4</span> Tell us how urgent this job is</h3>
+          </div>
+          <div class="form-block-content" >
+            <app-urgency-selector></app-urgency-selector>
+          </div>
         </div>
-        <hr>
-        <pre>{{radioGroupForm.value['radio']}}</pre>
-      </div>
-      <div class="form-footer col-sm-12">
-        <button class="btn btn-primary" type="submit">Submit form</button>
+        <div class="form-footer col-sm-12">
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
       </div>
     </div>
   </form>

@@ -112,7 +112,7 @@
     }
 
     .selec-desire {
-        .btn-disire-ton {
+        .btn-disire-tone {
             margin-bottom: 2rem;
             background-color: #eef2f7ba;
             border-color: #dae0e5;
@@ -120,11 +120,16 @@
             font-weight: 600;
         }
     
-        .btn-disire-ton:hover {
+        .btn-disire-tone:hover {
             background-color: #949da5;
         }
     
-        .btn-disire-ton:focus,.btn-disire-ton:active, .btn-disire-ton:checked {
+        input[type=radio]:checked +
+        .btn-disire-tone::after {
+            border: 2px solid black;
+        }
+
+        .btn-disire-tone:focus,.btn-disire-tone:active, .btn-disire-tone:checked {
             color: #6c757d;
             background-color: #e2e3e4;
             box-shadow: 0 0 0 0.2rem rgb(9 93 239 / 92%);

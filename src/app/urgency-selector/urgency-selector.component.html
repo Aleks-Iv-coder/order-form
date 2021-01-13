@@ -1,0 +1,11 @@
+<div class="line">
+  <div *ngFor="let point of points"
+    class="circle one"
+    [style.left.%]="point.indent"
+    (click)="select($event)">
+    <div class="label">{{point.label}}</div>
+  </div>
+</div>
+<div class="description" *ngIf="chosen">
+  With {{chosen.type}} timeline set up, {{chosen.description}}
+</div>

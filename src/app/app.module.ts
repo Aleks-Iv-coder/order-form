@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { OrderTranslationFormComponent } from './order-translation-form/order-translation-form.component';
 import { UrgencySelectorComponent } from './urgency-selector/urgency-selector.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {EnumToArrayPipe} from "./enum-to-array-pipe";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     HeaderComponent,
     OrderTranslationFormComponent,
-    UrgencySelectorComponent
+    UrgencySelectorComponent,
+    EnumToArrayPipe
   ],
   imports: [
     BrowserModule,

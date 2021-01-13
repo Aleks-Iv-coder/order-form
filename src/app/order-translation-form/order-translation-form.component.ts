@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Order} from '../models/order';
-import data from '../urgencyList.json';
-import {Urgency} from "../models/urgency";
+import urgencyList from '../urgencyList.json';
+import {Urgency} from '../models/urgency';
+import {Language} from '../models/language';
+import {TranslationTone, translationToneDescription} from '../models/translationTone';
 
 
 
@@ -17,7 +19,10 @@ export class OrderTranslationFormComponent implements OnInit {
   order: Order;
   urgency: Urgency;
 
-  urgencyList = data;
+  urgencyList = urgencyList;
+  languages = Language;
+  translationTones = TranslationTone;
+  translationToneDescription = translationToneDescription;
 
   constructor(
     private formBuilder: FormBuilder
@@ -27,7 +32,7 @@ export class OrderTranslationFormComponent implements OnInit {
     this.form = this.formBuilder.group({
       files: [this.uploadedFiles, [Validators.required]],
       translateTone: [null, [Validators.required]],
-      translateFrom: ['eng', [Validators.required]],
+      translateFrom: ['english', [Validators.required]],
       translateTo: [null, [Validators.required]],
       fullName: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
@@ -50,7 +55,7 @@ export class OrderTranslationFormComponent implements OnInit {
   }
 
   setUrgency($event: string): void {
-    this.urgency = $event as Urgency;
+    this.urgency = $event as unknown as Urgency;
   }
 
   orderSubmit(): void {

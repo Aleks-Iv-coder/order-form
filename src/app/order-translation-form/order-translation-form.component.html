@@ -64,9 +64,7 @@
                   class="form-select btn btn-light"
                   aria-label="Default select example"
                   formControlName="translateFrom">
-                  <option value="eng">English</option>
-                  <option value="rus">Russian</option>
-                  <option value="ukr">Ukraine</option>
+                  <option *ngFor="let lang of languages | enumToArray" value="{{lang}}">{{lang | titlecase}}</option>
                 </select>
               </p>
             </div>
@@ -76,10 +74,7 @@
                 class="form-select btn btn-light"
                 aria-label="Default select example"
                 formControlName="translateTo">
-                  <option selected>Choose languages</option>
-                  <option value="eng">English</option>
-                  <option value="rus">Russian</option>
-                  <option value="ukr">Ukraine</option>
+                  <option *ngFor="let lang of languages | enumToArray" value="{{lang}}">{{lang | titlecase}}</option>
                 </select>
               </p>
             </div>
@@ -91,15 +86,8 @@
             <h3><span>3</span> Select your desired tone</h3>
           </div>
           <div class="select-desire-ton form-block-content d-flex justify-content-center btn-group-vertical btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="translateTone">
-              <label ngbButtonLabel class="btn-desire-tone btn-outline-secondary">
-                <input ngbButton type="radio" [value]="1">
-                Friendly / Casual
-              </label>
-              <label ngbButtonLabel class="btn-desire-tone btn-outline-secondary">
-                <input ngbButton type="radio" [value]="2"> Corporate / Pro
-              </label>
-              <label ngbButtonLabel class="btn-desire-tone btn-outline-secondary">
-                <input ngbButton type="radio" [value]="3"> Media / Formal
+              <label ngbButtonLabel *ngFor="let tone of translationTones | enumToArray" class="btn-desire-tone btn-outline-secondary">
+                <input ngbButton type="radio" [value]="tone"> {{translationToneDescription[tone]}}
               </label>
           </div>
         </div>

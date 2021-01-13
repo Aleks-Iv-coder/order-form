@@ -3,3 +3,9 @@ export enum TranslationTone {
   pro,
   formal
 }
+
+export const translationToneDescription = {
+  casual: 'Friendly / Casual',
+  pro: 'Corporate / Pro',
+  formal: 'Media / Formal'
+};

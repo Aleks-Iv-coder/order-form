@@ -34,16 +34,19 @@ export class OrderTranslationFormComponent implements OnInit {
       translateTone: [null, [Validators.required]],
       translateFrom: ['english', [Validators.required]],
       translateTo: [null, [Validators.required]],
-      fullName: [null, [Validators.required]],
+      fullName: [null, [Validators.required, Validators.minLength(3)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
       cardNumber: [null, [Validators.required]],
       expiryDate: [null, [Validators.required]],
       code: [null, [Validators.required]],
       isTermsAgreed: [false, [Validators.required]]
-    });
+    }, { updateOn: 'submit'});
   }
 
+  get controls() {
+    return this.form.controls;
+  }
 
   handleFileInput(event): void {
     const file = event.target.files[0];

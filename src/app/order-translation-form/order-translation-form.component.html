@@ -113,6 +113,16 @@
               <label for="inputName" class="form-label">Full Name</label>
               <input type="text" class="form-control" id="inputName" formControlName="fullName">
             </div>
+            <div *ngIf="controls.fullName.invalid && controls.fullName.dirty"
+                 class="alert alert-danger">
+              <div *ngIf="controls.fullName.errors.required">
+                Name is required.
+              </div>
+              <div *ngIf="controls.fullName.errors.minlength">
+                Name must be at least 3 characters long.
+              </div>
+            </div>
+
             <div class="col-md-6">
               <label for="inputEmail" class="form-label">Email Address</label>
               <input type="email" class="form-control" id="inputEmail" formControlName="email">

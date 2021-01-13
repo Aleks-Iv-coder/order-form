@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {Order} from '../models/order';
+import data from '../urgencyList.json';
+import {Urgency} from "../models/urgency";
 
-const urgencyListSource = {
-  "I got time": "our expert translator can take a reasonable amount of time perfecting your translation.",
-  "average": "you will get the best translation.",
-  "yesterday": "we will do our best to make translation as soon as possible."
-};
+
 
 @Component({
   selector: 'app-order-translation-form',
@@ -15,8 +14,10 @@ const urgencyListSource = {
 export class OrderTranslationFormComponent implements OnInit {
   form: FormGroup;
   uploadedFiles: File[] = [];
+  order: Order;
+  urgency: Urgency;
 
-  urgencyList = urgencyListSource;
+  urgencyList = data;
 
   constructor(
     private formBuilder: FormBuilder
@@ -28,27 +29,20 @@ export class OrderTranslationFormComponent implements OnInit {
       translateTone: [null, [Validators.required]],
       translateFrom: ['eng', [Validators.required]],
       translateTo: [null, [Validators.required]],
+      fullName: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required]],
+      cardNumber: [null, [Validators.required]],
+      expiryDate: [null, [Validators.required]],
+      code: [null, [Validators.required]],
+      isTermsAgreed: [false, [Validators.required]]
     });
-
-    //   new FormGroup({
-    //   file: new FormControl(),
-    //   translateTone: new FormControl(),
-    //   translateFrom: new FormControl('eng'),
-    //   translateTo: new FormControl()
-    // });
-
   }
+
 
   handleFileInput(event): void {
     const file = event.target.files[0];
     this.uploadedFiles.push(file);
-    // console.log(this.fileToUpload);
-  }
-
-  orderSubmit(): void {
-    // console.log('Form submitted', this.form)
-    const formData = {...this.form.value};
-    console.log('Form data:', formData);
   }
 
   removeFile(file: File): void {
@@ -56,6 +50,14 @@ export class OrderTranslationFormComponent implements OnInit {
   }
 
   setUrgency($event: string): void {
-    console.log($event);
+    this.urgency = $event as Urgency;
+  }
+
+  orderSubmit(): void {
+    this.order = {...this.form.value};
+    this.order.files = this.uploadedFiles;
+    this.order.urgency = this.urgency;
+
+    console.log(this.order);
   }
 }

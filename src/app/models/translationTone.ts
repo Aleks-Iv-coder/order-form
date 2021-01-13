@@ -1,6 +1,5 @@
-export enum Language {
-  english,
-  russian,
-  ukrainian,
-  french
+export enum TranslationTone {
+  casual,
+  pro,
+  formal
 }

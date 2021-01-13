@@ -1,6 +1,5 @@
-export enum Language {
-  english,
-  russian,
-  ukrainian,
-  french
+export enum Urgency {
+  'I got time',
+  average,
+  yesterday
 }

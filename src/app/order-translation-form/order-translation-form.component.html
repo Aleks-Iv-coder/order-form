@@ -61,10 +61,10 @@
             <div class="col-sm-12">
               <p>from:
                 <select
-                class="form-select btn btn-light"
-                aria-label="Default select example"
-                formControlName="translateFrom">
-                  <option selected value="eng">English</option>
+                  class="form-select btn btn-light"
+                  aria-label="Default select example"
+                  formControlName="translateFrom">
+                  <option value="eng">English</option>
                   <option value="rus">Russian</option>
                   <option value="ukr">Ukraine</option>
                 </select>
@@ -92,7 +92,7 @@
           </div>
           <div class="select-desire-ton form-block-content d-flex justify-content-center btn-group-vertical btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="translateTone">
               <label ngbButtonLabel class="btn-desire-tone btn-outline-secondary">
-                <input ngbButton type="radio" [value]="1"> 
+                <input ngbButton type="radio" [value]="1">
                 Friendly / Casual
               </label>
               <label ngbButtonLabel class="btn-desire-tone btn-outline-secondary">
@@ -118,43 +118,42 @@
             <h3><span>5</span> Sign up and choose a payment method</h3>
           </div>
           <div>
-            <p>Already have an account with us? <span>Sign in</span></p> 
+            <p>Already have an account with us? <span>Sign in</span></p>
           </div>
           <div class="form-block-content lang-select row">
             <div class="col-12">
               <label for="inputName" class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="inputName">
+              <input type="text" class="form-control" id="inputName" formControlName="fullName">
             </div>
             <div class="col-md-6">
-              <label for="inputEmail" class="form-label">Email Adress</label>
-              <input type="email" class="form-control" id="inputEmail">
+              <label for="inputEmail" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="inputEmail" formControlName="email">
             </div>
             <div class="col-md-6">
               <label for="inputPassword" class="form-label">Choose a password</label>
-              <input type="password" class="form-control" id="inputPassword">
+              <input type="password" class="form-control" id="inputPassword" formControlName="password">
             </div>
             <div class="col-6">
               <label for="cardNumber" class="form-label">Card Number</label>
-              <input type="text" class="form-control" id="cardNumber">
+              <input type="text" class="form-control" id="cardNumber" formControlName="cardNumber">
             </div>
             <div class="col-md-4">
               <label for="cardExpDate" class="form-label">Expiry date</label>
-              <input type="text" class="form-control" id="cardExpDate" placeholder="DD/MM/YY">
+              <input type="text" class="form-control" id="cardExpDate" placeholder="DD/MM/YY" formControlName="expiryDate">
             </div>
             <div class="col-md-2">
               <label for="cardCode" class="form-label">Code</label>
-              <input type="password" class="form-control" id="cardCode">
+              <input type="password" class="form-control" id="cardCode" formControlName="code">
             </div>
           </div>
         </div>
 
         <div class="form-footer col-sm-12 d-flex justify-content-between">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
+            <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="isTermsAgreed">
+            <label class="form-check-label" for="gridCheck" >
               I agree to the <span>Terms & Conditions</span>
             </label>
-            
           </div>
           <div>
             <button class="btn btn-light" type="submit">Place Order</button>

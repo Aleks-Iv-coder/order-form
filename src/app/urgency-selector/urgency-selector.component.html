@@ -1,6 +1,7 @@
 <div class="line">
   <div *ngFor="let point of points"
     class="circle one"
+    [class.active]="point.label === default"
     [style.left.%]="point.indent"
     (click)="select($event)">
     <div class="label">{{point.label}}</div>

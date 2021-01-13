@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
+const urgencyListSource = {
+  "I got time": "our expert translator can take a reasonable amount of time perfecting your translation.",
+  "average": "you will get the best translation.",
+  "yesterday": "we will do our best to make translation as soon as possible."
+};
+
 @Component({
   selector: 'app-order-translation-form',
   templateUrl: './order-translation-form.component.html',
   styleUrls: ['./order-translation-form.component.scss']
 })
-
 export class OrderTranslationFormComponent implements OnInit {
-  public radioGroupForm: FormGroup;
+  radioGroupForm: FormGroup;
   form: FormGroup;
   uploadedFiles: File[] = [];
+
+  urgencyList = urgencyListSource;
 
   constructor(
     private formBuilder: FormBuilder
@@ -44,5 +51,9 @@ export class OrderTranslationFormComponent implements OnInit {
 
   removeFile(file: File): void {
     this.uploadedFiles.splice(this.uploadedFiles.findIndex(f => f === file), 1);
+  }
+
+  setUrgency($event: string): void {
+    console.log($event);
   }
 }

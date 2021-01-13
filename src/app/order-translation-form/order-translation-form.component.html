@@ -107,7 +107,7 @@
             <h3><span>4</span> Tell us how urgent this job is</h3>
           </div>
           <div class="form-block-content" >
-            <app-urgency-selector></app-urgency-selector>
+            <app-urgency-selector [urgencyList]="urgencyList" [default]="'average'" (setUrgency)="setUrgency($event)"></app-urgency-selector>
           </div>
         </div>
 

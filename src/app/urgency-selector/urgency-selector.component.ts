@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 
 @Component({
@@ -7,29 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./urgency-selector.component.scss']
 })
 export class UrgencySelectorComponent implements OnInit {
-  urgency = {
-    "I got time": "our expert translator can take a reasonable amount of time perfecting your translation.",
-    "average": "you will get the best translation.",
-    "yesterday": "we will do our best to make translation as soon as possible."
-  }
+  @Input() urgencyList;
+  @Input() default;
+  @Output() setUrgency = new EventEmitter<string>();
 
   points: {label: string, indent: number}[];
-  chosen: {type: string, description: string}
+  chosen: {type: string, description: string};
 
   ngOnInit(): void {
-    const step = 100 / (Object.keys(this.urgency).length - 1) ;
-    this.points = Object.keys(this.urgency).map((label, i) => ({label, indent: i * step}))
+    const step = 100 / (Object.keys(this.urgencyList).length - 1) ;
+    this.points = Object.keys(this.urgencyList).map((label, i) => ({label, indent: i * step}));
+    this.chosen = {type: this.default, description: this.urgencyList[this.default]};
   }
 
-  select($event: MouseEvent) {
+  select($event: MouseEvent): void {
     document.querySelector('.circle.active')?.classList.remove('active');
 
     let element = $event.target as HTMLElement;
-    if(element.classList.contains('label')) {
+    if (element.classList.contains('label')) {
       element = element.parentElement;
     }
     element.classList.add('active');
 
-    this.chosen = {type: element.innerText, description: this.urgency[element.textContent]};
+    this.chosen = {type: element.innerText, description: this.urgencyList[element.textContent]};
+
+    this.setUrgency.emit(element.textContent);
   }
 }

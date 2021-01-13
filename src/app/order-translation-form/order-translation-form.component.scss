@@ -8,15 +8,14 @@
     }
 }
 
-// .order-list::after {
-//     content: "";
-//     width: 0.8em;
-//     height: 0.8em;
-//     border: 1px solid black;
-// }
-
 .type-translation-block {
-    padding: 0 15rem;
+    padding: 0 5rem;
+
+    img {
+        display: block;
+        width: 50%;
+        margin: 10px auto;
+    }
 
     .btn-type-translation {
         width: 10rem;
@@ -24,19 +23,35 @@
         background-color: #eef2f7ba;
         border-color: #dae0e5;
         font-weight: 600;
+        position: relative;
 
         &:hover {
-            background-color: #949da5;
+            background-color: #d6dde2;
+            color: #6c757d;
+        }
+
+        &:focus,
+        &:active {
+            color: #6c757d;
+            background-color: #e2e3e4;
+            box-shadow: 0 0 0 0.2rem rgb(61 131 251 / 92%);
+        }
+
+        &:focus::after,
+        &:active::after {
+            font-size: 24px;
+            position: absolute;
+            content: url(../../assets/image/check-mark.svg);
+            top: -18px;
+            left: 100%;
+            transform: translateX(-50%);
+            height: 30px;
+            width: 30px;
+            line-height: 50px;
+            border-radius: 50%;
+            background: white;
         }
     }
-
-    .btn:focus,
-    .btn:active {
-        color: #6c757d;
-        background-color: #e2e3e4;
-        box-shadow: 0 0 0 0.2rem rgb(9 93 239 / 92%);
-    }
-
 }
 
 .order-translation-form {
@@ -104,19 +119,14 @@
         select {
             margin: 0.5rem 2rem;
             padding: 0.5rem;
-            // border: 1 solid #cccccc;
         }
-
-        // select::after {
-        //     content: "";
-        //     width: 0.8em;
-        //     height: 0.8em;
-        //     border: 1px solid black;
-        // }
     }
 }
 
 .select-desire-ton {
+
+    padding: 0 2rem;
+    
     .btn-desire-tone {
         margin-bottom: 2rem;
         background-color: #eef2f7ba;

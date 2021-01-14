@@ -129,13 +129,16 @@
 
     .btn-desire-tone {
         margin-bottom: 2rem;
+        padding: 18px 0;
         background-color: #eef2f7ba;
         border-color: #dae0e5;
         border-radius: 5px;
         font-weight: 600;
 
         &:hover {
-          background-color: #949da5;
+            background-color: #d6dde2;
+            color: #6c757d;
+            box-shadow: none;
         }
 
         &:focus,
@@ -143,7 +146,27 @@
         &:checked {
           color: #6c757d;
           background-color: #e2e3e4;
-          box-shadow: 0 0 0 0.2rem rgb(9 93 239 / 92%);
+          box-shadow: none
+        }
+
+        &.active {
+            color: #6c757d;
+            border: 4px solid #7daadf;
+            box-shadow: none;
+
+            &::after {
+            font-size: 24px;
+            position: absolute;
+            content: url(../../assets/image/check-mark.svg);
+            top: -18px;
+            left: 100%;
+            transform: translateX(-50%);
+            height: 30px;
+            width: 30px;
+            line-height: 50px;
+            border-radius: 50%;
+            background: white;
+            }
         }
     }
 
@@ -151,8 +174,33 @@
     .btn-desire-tone::after {
         border: 2px solid black;
     }
+
+    .customer-data {
+        input {
+            &.ng-invalid.ng-touched {
+                border: 1px solid red;
+            }
+        }
+    }
 }
 
 .form-footer {
     margin: 5rem 0 10rem 0;
+// #5fd8ea
+    .btn {
+        margin: 0.5rem;
+        width: 11rem;
+        padding: 1rem 0;
+        border-color: #dae0e5;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 800;
+
+        &.btn-submit {
+            color: white;
+            background-color:#5fd8ea;
+            border-color: #17a2b8;
+        }
+    }
+
 }

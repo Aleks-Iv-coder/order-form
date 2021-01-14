@@ -108,54 +108,116 @@
           <div>
             <p>Already have an account with us? <span>Sign in</span></p>
           </div>
-          <div class="form-block-content lang-select row">
+          <div class="customer-data form-block-content lang-select row">
             <div class="col-12">
               <label for="inputName" class="form-label">Full Name</label>
               <input type="text" class="form-control" id="inputName" formControlName="fullName">
-            </div>
-            <div *ngIf="controls.fullName.invalid && controls.fullName.dirty"
-                 class="alert alert-danger">
-              <div *ngIf="controls.fullName.errors.required">
-                Name is required.
-              </div>
-              <div *ngIf="controls.fullName.errors.minlength">
-                Name must be at least 3 characters long.
+              <div *ngIf="controls.fullName.invalid && controls.fullName.dirty"
+                  class="alert alert-danger">
+                <div *ngIf="controls.fullName.errors.required">
+                  Name is required.
+                </div>
+                <div *ngIf="controls.fullName.errors.minlength">
+                  Name must be at least 8 characters long.
+                </div>
+                <div *ngIf="controls.fullName.errors.maxlength">
+                  Name must be not more then 32 characters long.
+                </div>
               </div>
             </div>
 
             <div class="col-md-6">
               <label for="inputEmail" class="form-label">Email Address</label>
               <input type="email" class="form-control" id="inputEmail" formControlName="email">
+              <div *ngIf="controls.email.invalid && controls.email.dirty"
+              class="alert alert-danger">
+                <div *ngIf="controls.email.errors.required">
+                  Email is required.
+                </div>
+                <div *ngIf="controls.email.errors.pattern">
+                  Some characters is not order.
+                </div>
+              </div>
             </div>
+
             <div class="col-md-6">
               <label for="inputPassword" class="form-label">Choose a password</label>
               <input type="password" class="form-control" id="inputPassword" formControlName="password">
+              <div *ngIf="controls.password.invalid && controls.password.dirty"
+              class="alert alert-danger">
+                <div *ngIf="controls.password.errors.required">
+                  Password is required.
+                </div>
+                <div *ngIf="controls.password.errors.pattern">
+                  Some characters is not order.
+                </div>
+              </div>
             </div>
+
             <div class="col-6">
               <label for="cardNumber" class="form-label">Card Number</label>
               <input type="text" class="form-control" id="cardNumber" formControlName="cardNumber">
+              <div *ngIf="controls.cardNumber.invalid && controls.cardNumber.dirty"
+              class="alert alert-danger">
+                <div *ngIf="controls.cardNumber.errors.required">
+                  The card number is required.
+                </div>
+                <div *ngIf="controls.cardNumber.errors.pattern">
+                  The card number characters should be numbers.
+                </div>
+              </div>
             </div>
+
             <div class="col-md-4">
               <label for="cardExpDate" class="form-label">Expiry date</label>
               <input type="text" class="form-control" id="cardExpDate" placeholder="DD/MM/YY" formControlName="expiryDate">
+              <div *ngIf="controls.expiryDate.invalid && controls.expiryDate.dirty"
+              class="alert alert-danger">
+                <div *ngIf="controls.expiryDate.errors.required">
+                  Card Expiry Date number is required.
+                </div>
+                <div *ngIf="controls.expiryDate.errors.pattern">
+                  Card Expiry Date should be in DD/MM/YY maner.
+                </div>
+              </div>
             </div>
             <div class="col-md-2">
               <label for="cardCode" class="form-label">Code</label>
               <input type="password" class="form-control" id="cardCode" formControlName="code">
+              <div *ngIf="controls.code.invalid && controls.code.dirty"
+              class="alert alert-danger">
+                <div *ngIf="controls.code.errors.required">
+                  Card's code is required.
+                </div>
+                <div *ngIf="controls.code.errors.pattern">
+                  The card's code characters should be numbers.
+                </div>
+                <div *ngIf="controls.code.errors.maxlength">
+                  Should not be more then 3 characters long.
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
 
         <div class="form-footer col-sm-12 d-flex justify-content-between">
-          <div class="form-check">
+          <div class="form-check d-flex align-items-center">
             <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="isTermsAgreed">
             <label class="form-check-label" for="gridCheck" >
               I agree to the <span>Terms & Conditions</span>
             </label>
+            <div *ngIf="controls.isTermsAgreed.invalid"
+              class="alert alert-danger">
+                <div *ngIf="controls.isTermsAgreed.errors.required">
+                  You should to agree to the Terms & Conditions before submit.
+                </div>
+              </div>
           </div>
           <div>
-            <button class="btn btn-light" type="submit">Place Order</button>
-            <button class="btn btn-light" type="submit">Print a Quote</button>
+            <!-- [disabled]="form.invalid" -->
+            <button class="btn btn-light btn-submit" type="submit">Place Order</button>
+            <button class="btn btn-light" type="button">Print a Quote</button>
           </div>
         </div>
       </div>

@@ -22,14 +22,13 @@
 
         p {
             margin-top: 0.5rem;
-
             color:#6c757d;
             text-transform: lowercase;
             font-weight: 400;
         }
     }
 
-    .header-btn {
+    .btn {
         margin: .5rem;
         width: 11rem;
         padding: 1rem 0;
@@ -39,6 +38,11 @@
         font-size: 12px;
         font-weight: 800;
         // border: 1px solid #6c757d;
+
+        &.header-btn {
+            background-color:#5fd8ea;
+            border-color: #17a2b8;
+        }
     }
 
     .header-contakts {

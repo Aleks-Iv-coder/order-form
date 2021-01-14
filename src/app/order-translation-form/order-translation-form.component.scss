@@ -184,10 +184,30 @@
     }
 }
 
-    .form-control.card-number {
+.form-control {
+    &.card-number {
         background: url('../../assets/image/visa.svg') no-repeat;
         background-position-x: 99%;
     }
+        
+    &.ng-valid {
+        box-shadow: none;
+        background: url('../../assets/image/check-mark.svg') no-repeat;
+        background-position-x: 99%;
+        background-position-y: 42%;
+        background-size: 20px;
+    }
+    
+    &.ng-invalid.ng-dirty {
+        box-shadow: none;
+        background: url('../../assets/image/close.svg') no-repeat;
+        background-position-x: 99%;
+        background-position-y: 42%;
+        background-size: 20px;
+    }
+}
+
+    
 
 .form-footer {
     margin: 5rem 0 10rem 0;

@@ -30,6 +30,7 @@
             <input
               aria-label="file example" required
               type="file"
+              accept=".doc,.docx,.text,.pdf,.markdown"
               id="file"
               formControlName="files"
               (change)="handleFileInput($event)">
@@ -135,7 +136,7 @@
                   Email is required.
                 </div>
                 <div *ngIf="controls.email.errors.pattern">
-                  Some characters is not order.
+                  The Email must include @ and domain name.
                 </div>
               </div>
             </div>
@@ -149,7 +150,7 @@
                   Password is required.
                 </div>
                 <div *ngIf="controls.password.errors.pattern">
-                  Some characters is not order.
+                  Characters of pasword must include a large letters and numbers.
                 </div>
               </div>
             </div>
@@ -215,7 +216,6 @@
               </div>
           </div>
           <div>
-            <!-- [disabled]="form.invalid" -->
             <button class="btn btn-light btn-submit" type="submit">Place Order</button>
             <button class="btn btn-light" type="button">Print a Quote</button>
           </div>

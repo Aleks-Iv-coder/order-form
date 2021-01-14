@@ -40,7 +40,7 @@ export class OrderTranslationFormComponent implements OnInit {
       expiryDate: [null, [Validators.required, Validators.pattern(/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{2}$/) ]],
       code: [null, [Validators.required, Validators.maxLength(3), Validators.pattern(/^[0-9]*$/)]],
       isTermsAgreed: [false, [Validators.required]]
-    }, { updateOn: 'submit'});
+    }, );
   }
   // { updateOn: 'submit'}
 

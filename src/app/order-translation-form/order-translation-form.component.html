@@ -156,7 +156,7 @@
 
             <div class="col-6">
               <label for="cardNumber" class="form-label">Card Number</label>
-              <input type="text" class="form-control" id="cardNumber" formControlName="cardNumber">
+              <input type="text" class="form-control card-number " id="cardNumber" formControlName="cardNumber">
               <div *ngIf="controls.cardNumber.invalid && controls.cardNumber.dirty"
               class="alert alert-danger">
                 <div *ngIf="controls.cardNumber.errors.required">

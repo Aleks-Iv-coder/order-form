@@ -184,9 +184,14 @@
     }
 }
 
+    .form-control.card-number {
+        background: url('../../assets/image/visa.svg') no-repeat;
+        background-position-x: 99%;
+    }
+
 .form-footer {
     margin: 5rem 0 10rem 0;
-// #5fd8ea
+
     .btn {
         margin: 0.5rem;
         width: 11rem;
